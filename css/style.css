@@ -1,10 +1,21 @@
 *{
     box-sizing: border-box;
 }
-.title{
+.header-wrapper{
     text-align: center;
+    color: #000000;
+}
+.title{
     font-size: 40px;
     line-height: 52px;
     font-weight: bold;
-    color: #000000;
+}
+.subtitle{
+    font-size: 20px;
+    line-height: 40px;
+    font-weight: normal;   
+}
+.description{
+    font-size: 16px;
+    line-height: 28px;
 }
