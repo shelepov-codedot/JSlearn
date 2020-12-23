@@ -1,19 +1,16 @@
 'use strict'
-//Пример метода SayHi()
+//Пример работы Symbol.toPrimitive
 let user = {
-    name: "Denis",
-    age: 19,
-    sayHi() {//При создании метода, можно не объявлять function
-        alert(`${this.name}: Hello!`);
+    name: "John",
+    money: 1000,
+  
+    [Symbol.toPrimitive](hint) {
+      alert(`hint: ${hint}`);
+      return hint == "string" ? `{name: "${this.name}"}` : this.money;
     }
-};
-
-user.sayHi();
-//
-
-//Конструкторы, создание объектов через "new"
-function Person(fio) {
-    this.fio = fio;
-}
-console.log()
-//
+  };
+  
+  // демонстрация результатов преобразований:
+  alert(user); // hint: string -> {name: "John"}
+  alert(+user); // hint: number -> 1000
+  alert(user + 500); // hint: default -> 1500
