@@ -1,16 +1,16 @@
 'use strict'
-//Пример работы Symbol.toPrimitive
-let user = {
-    name: "John",
-    money: 1000,
-  
-    [Symbol.toPrimitive](hint) {
-      alert(`hint: ${hint}`);
-      return hint == "string" ? `{name: "${this.name}"}` : this.money;
+
+let str = "Я начал изучение JS, так как JS, самый лучший язык для Web.";
+
+let target = "JS";
+
+let pos = 0;
+
+while(true){//нахождение индекса слова в строке
+    let foundPos = str.indexOf(target, pos);
+    if( foundPos == -1 ){
+        break;
     }
-  };
-  
-  // демонстрация результатов преобразований:
-  alert(user); // hint: string -> {name: "John"}
-  alert(+user); // hint: number -> 1000
-  alert(user + 500); // hint: default -> 1500
+    console.log(`Наиден элемент, тут: ${foundPos}`);
+    pos = foundPos + 1;
+}
