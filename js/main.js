@@ -12,5 +12,5 @@ while(true){//нахождение индекса слова в строке
         break;
     }
     console.log(`Наиден элемент, тут: ${foundPos}`);
-    pos = foundPos + 1;
+    pos = foundPos + 1;//Начало со следующего индекса
 }
