@@ -91,3 +91,32 @@ let arrrs = names.split(', ');
 for (let name of arrrs) {
   console.log( `Сообщение получат: ${name}.` ); // Сообщение получат: Вася (и другие имена)
 }
+
+//Перебор объектов/массивов symbol.iterator
+let range = {
+    from: 1,
+    to: 10,
+};
+
+range[Symbol.iterator] = function(){
+    return {
+        current: this.from,
+        lastEl: this.to,
+
+        next(){
+            if(this.current <= this.lastEl){
+                return{
+                    done: false,
+                    value: this.current++,
+                };
+            }else{
+                return{
+                    done: true,
+                };
+            }
+        }
+    };
+};
+for (let num of range) {
+    console.log(num); 
+}
