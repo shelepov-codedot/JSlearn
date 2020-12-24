@@ -92,7 +92,7 @@ for (let name of arrrs) {
   console.log( `Сообщение получат: ${name}.` ); // Сообщение получат: Вася (и другие имена)
 }
 
-//Перебор объектов/массивов symbol.iterator
+//Итерируем объекты/массивы symbol.iterator
 let range = {
     from: 1,
     to: 10,
@@ -120,3 +120,11 @@ range[Symbol.iterator] = function(){
 for (let num of range) {
     console.log(num); 
 }
+
+//Перебор строки
+let strName = "Denis";
+for (let charik of strName){
+    console.log(charik);
+}
+
+//
