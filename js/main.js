@@ -1,130 +1,51 @@
-'use strict'
+//Задание Влада
+//Загрузить информацию через fetch.then (async/await), XMLHTR()
 
-let arr = ["HTML", "CSS", "JS", "PHP"];
+const url = 'https://swapi.dev/api/people/';
 
-console.log( arr.pop() );//удаляет элемент с конца и выводит его 
-console.log( arr ); 
+const fetchThen = (url) => fetch(url).then(response => response.json());
 
-arr.push("MySQL");//добавление элемента в конец
-console.log( arr );
+const show = (data) => console.log(data);
 
-arr.shift();//удаление элемента сначала
-console.log( arr );
+fetchThen(url).then(data => show(data));
 
-arr.unshift( "HTML5" );//добавление элемента в начало
-console.log( arr );
- 
-//pop и push работают быстрее чем shift и unshift
+(async() => show(await fetchThen(url)))();
 
-//перебор массива
-for ( let i = 0; i < arr.length; i++){
-    console.log( "Элемент массива: " + arr[i])
+//async/await
+
+async(fetchThenAsync = (url) => await fetch(url).then(response => await response.json()));
+
+
+
+/* const p2 = new Promise(async function(resolve) {
+    const response = await fetch(url)
+    const data = await response.json()
+    resolve(data)
+})
+
+function showAsyncFetch() {
+    console.log('Async заграузка данных: ')
+    p.then(data => {
+        console.log(data)
+    })
+}
+ */
+console.log(+false)
+
+
+
+
+
+
+/* async function fetchToDoAsync() {
+    console.log('Вроде как должно работать...');
+    try {
+        const response = await fetch(url)
+        const data = await response.json()
+        console.log('Данные peopleAsync: ', data);
+    } catch (e) {
+        console.error(e);
+    }
 }
 
-for( let el of arr){
-    console.log( "Элементы массива: " + arr );
-}
-
-//многомерные массивы 
-let matrix = [
-    [1,2,3],
-    [4,5,6],
-    [7,8,9]
-];
-console.log( matrix );
-
-//удаление элемента из массива splice
-
-let arrTest = ["Я", "изучаю", "JS", "пряма", "сейчас"];
-
-arrTest.splice(0,3, "Давай", "Танцевать");//удаление и замена
-
-console.log( arrTest );
-
-//копирование массива и добавление в него элементов
-let arr3 = ["Шо"];
-console.log( arr3 );
-console.log( arr3.concat(["Go", "Byxat"]));
-
-//Цикл ForEach
-let arr4 = [1,2,3,4,5].forEach(console.log);
-
-//Поиск элемента с помощью метода find
-let users = [
-    { id: 1, name: "Даник"},
-    { id: 2, name: "Ярик"},
-    { id: 3, name: "Денис"}
-]
-let userResult = users.find(item => item.id == 3);
-console.log( userResult.name );
-
-//Фильтрация массива filtr
-
-let user = users.filter(item => item.id < 3);
-console.log ( user.length );
-
-//Преобразование методом map
-let lengths = ["Bilbo", "Gandalf", "Nazgul"];
-console.log(lengths);
-console.log(lengths.map(item => item.length)); // 5,7,6
-
-//Сортировка массива sort
-function numSort( a, b ){//функция для сортировки, без нее, сортировка работает, принимая элементы за строки
-    if(a > b) return 1;
-    if(a == b) return 0;
-    if(a < b) return -1;
-}
-let arrNum = [1,2,3,11,10];
-console.log( arrNum );
-
-arrNum.sort(numSort);
-
-console.log( arrNum );
-//Сокращеный варинт
-console.log( arrNum.sort((a, b) => a -b));
-
-//split и join
-let names = 'Вася, Петя, Маша';
-
-let arrrs = names.split(', ');
-
-for (let name of arrrs) {
-  console.log( `Сообщение получат: ${name}.` ); // Сообщение получат: Вася (и другие имена)
-}
-
-//Итерируем объекты/массивы symbol.iterator
-let range = {
-    from: 1,
-    to: 10,
-};
-
-range[Symbol.iterator] = function(){
-    return {
-        current: this.from,
-        lastEl: this.to,
-
-        next(){
-            if(this.current <= this.lastEl){
-                return{
-                    done: false,
-                    value: this.current++,
-                };
-            }else{
-                return{
-                    done: true,
-                };
-            }
-        }
-    };
-};
-for (let num of range) {
-    console.log(num); 
-}
-
-//Перебор строки
-let strName = "Denis";
-for (let charik of strName){
-    console.log(charik);
-}
-
-//
+fetchToDoAsync() */

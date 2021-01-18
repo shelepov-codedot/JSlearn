@@ -1,24 +1,29 @@
-*{
+* {
     box-sizing: border-box;
 }
-.header-wrapper{
+
+.header-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: #000000;
 }
-.title{
+
+.title {
     font-size: 40px;
     line-height: 52px;
     font-weight: bold;
 }
-.subtitle{
+
+.subtitle {
     font-size: 20px;
     line-height: 40px;
-    font-weight: normal;   
+    font-weight: normal;
 }
-.description{
+
+.description {
     font-size: 16px;
     line-height: 28px;
+    color: #ff0000;
 }
